@@ -78,9 +78,9 @@ CREATE OR REPLACE PROPERTY GRAPH NetworkTopology
     RFO KEY(RFO_ID) LABEL RFO PROPERTIES(RFO_ID, Severity)
   )
   EDGE TABLES(
-    InventoryIssueRFO KEY(Serial_Number, RFO_ID) SOURCE KEY(Serial_Number) REFERENCES Inventory(Serial_Number) DESTINATION KEY(RFO_ID) REFERENCES RFO(RFO_ID) LABEL NodeComponentHasIssue PROPERTIES(RFO_ID, Serial_Number),
-    NodeConnectsDevice KEY(Node_ID, Device_ID) SOURCE KEY(Node_ID) REFERENCES Nodes(Node_ID) DESTINATION KEY(Device_ID) REFERENCES Device(Device_ID) LABEL DeviceConnectedtoNode PROPERTIES(Device_ID, Node_ID),
-    NodeHasInventory KEY(Node_ID, Serial_Number) SOURCE KEY(Node_ID) REFERENCES Nodes(Node_ID) DESTINATION KEY(Serial_Number) REFERENCES Inventory(Serial_Number) LABEL NodeConsistsOf PROPERTIES(Node_ID, Serial_Number)
+    InventoryIssueRFO KEY(Serial_Number, RFO_ID) SOURCE KEY(Serial_Number) REFERENCES Inventory(Serial_Number) DESTINATION KEY(RFO_ID) REFERENCES RFO(RFO_ID),
+    NodeConnectsDevice KEY(Node_ID, Device_ID) SOURCE KEY(Node_ID) REFERENCES Nodes(Node_ID) DESTINATION KEY(Device_ID) REFERENCES Device(Device_ID),
+    NodeHasInventory KEY(Node_ID, Serial_Number) SOURCE KEY(Node_ID) REFERENCES Nodes(Node_ID) DESTINATION KEY(Serial_Number) REFERENCES Inventory(Serial_Number)
   )
 EOT
   ]
